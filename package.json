@@ -1,0 +1,14 @@
+{
+  "name": "protractorframework",
+  "version": "1.0.0",
+  "description": "This is a test Protractor frmework",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Debadatt",
+  "license": "ISC",
+  "dependencies": {
+    "protractor": "^7.0.0"
+  }
+}

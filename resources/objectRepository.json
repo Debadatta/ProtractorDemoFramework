@@ -1,0 +1,11 @@
+{
+    "homePage":
+    {
+      "firstTextbox": ["model","first"],
+      "secondTextbox": ["model","second"],
+      "operatorDropdown": ["model","operator"],
+      "goButton": ["id","gobutton"],
+      "pageHeader": ["xpath","//h3[contains(text(), 'Super Calculator')]"],
+      "latestResult": ["binding","latest"]
+    }
+}
