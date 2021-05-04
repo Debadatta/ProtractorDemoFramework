@@ -1,5 +1,14 @@
 {
     "application": {
-      "baseUrl": "http://juliemr.github.io/protractor-demo/"
+      "baseUrl": "https://angularjs.org/",
+      "title": "AngularJS — Superheroic JavaScript MVW Framework"
+    },
+    "tutorialPage": {
+      "title": "AngularJS: Tutorial: Tutorial",
+      "repeaterName": "navItem in navGroup.navItems",
+      "topic1": "0 - Bootstrapping",
+      "topic2": "1 - Static Template",
+      "topic3": "2 - AngularJS Templates",
+      "topicHeading": "Tutorial"
     }
 }

@@ -1,6 +1,7 @@
 module.exports = function () {
 
     var webElement = null;
+    var repeaterWebElements = [];
 
     //find locator using provided locator type and locator value
     this.findLocator = function (locator, value) {
@@ -34,8 +35,22 @@ module.exports = function () {
                 if (locatorValue !== 'undefined') {
                     this.webElement = element(by.binding(locatorValue));
                 }
-            }
+            } else if (locatorType == 'class') {
+                if (locatorValue !== 'undefined') {
+                    this.webElement = element(by.className(locatorValue));
+                }
+            } 
         }
         return this.webElement;
     };
+
+    this.dynamicMenuSelector = function(value) {
+        this.webElement = element(by.xpath("//a[contains(text(),'"+ value +"')]"));
+        return this.webElement;
+    }
+
+    this.findRepeators = function( repeaterName ) {
+        this.repeaterWebElements = element.all(by.repeater(repeaterName));
+        return this.repeaterWebElements;
+    }
 };

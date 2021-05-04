@@ -18,12 +18,14 @@
     global.commons.inputBoxActions = require('./commons/inputBoxActions.js');
     global.commons.buttonActions = require('./commons/buttonActions.js');
     global.commons.waitActions = require('./commons/waitActions.js');
+    global.commons.labelActions = require('./commons/labelActions.js');
 
     global.utils = {};
     global.utils.objectLocator = require('./utils/objectLocator.js');
     
     global.pages = {};
-    global.pages.homePage = require('./pages/HomePage.js');
+    global.pages.homePage = require('./pages/homePage.js');
+    global.pages.tutorialPage = require('./pages/tutorialPage.js');
 
     global.wait = {
         until: {

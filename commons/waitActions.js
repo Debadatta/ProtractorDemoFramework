@@ -1,5 +1,5 @@
 module.exports = function () {
-
+    waitTimeout= 1200000;
     //wait till specified time
     this.wait = function (value) {
         browser.sleep(value | 2000);
@@ -10,7 +10,7 @@ module.exports = function () {
         if (typeof element !== 'undefined') {
             browser.wait(function () {
                 return element.isDisplayed();
-            }, waitTimeout | 60000);
+            }, waitTimeout );
         }
     };
 

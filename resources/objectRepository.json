@@ -1,11 +1,17 @@
 {
     "homePage":
     {
-      "firstTextbox": ["model","first"],
-      "secondTextbox": ["model","second"],
-      "operatorDropdown": ["model","operator"],
-      "goButton": ["id","gobutton"],
-      "pageHeader": ["xpath","//h3[contains(text(), 'Super Calculator')]"],
-      "latestResult": ["binding","latest"]
+      "homePageLogo": ["xpath", "//h2[contains(text(),'AngularJS')]"],
+      "yourNameTextBox": ["model","yourName"],
+      "heading": ["xpath","//h1[@class='ng-binding']"],
+      "toDoTextBox": ["model","todoList.todoText"],
+      "addButton": ["xpath","//input[@value='add']"],
+      "learnLink": ["xpath", "//a[contains(text(),'Learn')]"],
+      "checkBoxLabel": ["xpath","//form[@ng-submit='todoList.addTodo()']/parent::div/child::ul/li[last()]/label/span"]
+      
+    },
+
+    "tutorialPage": {
+      "tutorialClassName": ["class", "ng-binding"]
     }
 }

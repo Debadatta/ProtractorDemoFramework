@@ -8,13 +8,16 @@ module.exports = function () {
     var inputBoxActions = new commons.inputBoxActions();
     var buttonActions = new commons.buttonActions();
     var waitActions = new commons.waitActions();
+    var labelActions = new commons.labelActions();
 
-    var firstTextbox = objLocator.findLocator(objRepo.homePage.firstTextbox);
-    var secondTextbox = objLocator.findLocator(objRepo.homePage.secondTextbox);
-    var operatorDropdown = objLocator.findLocator(objRepo.homePage.operatorDropdown);
-    var goButton = objLocator.findLocator(objRepo.homePage.goButton);
-    var calculatorPage = objLocator.findLocator(objRepo.homePage.pageHeader);
-    var latestResult = objLocator.findLocator(objRepo.homePage.latestResult);
+    var homePageLogo = objLocator.findLocator(objRepo.homePage.homePageLogo);
+    var yourNameTextBox = objLocator.findLocator(objRepo.homePage.yourNameTextBox);
+    var heading = objLocator.findLocator(objRepo.homePage.heading);
+    var toDoTextBox = objLocator.findLocator(objRepo.homePage.toDoTextBox);
+    var addButton = objLocator.findLocator(objRepo.homePage.addButton);
+    var toDoTaskLabel = objLocator.findLocator(objRepo.homePage.checkBoxLabel);
+    var learnMenu= objLocator.dynamicMenuSelector("Learn");
+    var tutorialMenu= objLocator.dynamicMenuSelector("Tutorial");
 
     this.openUrl = function (path) {
         if (typeof path === 'undefined') {
@@ -29,27 +32,42 @@ module.exports = function () {
         return this;
     };
 
-    this.enterFirstNumber  = function( firstNumber ) {
-        waitActions.waitForElementIsDisplayed(firstTextbox);
-        inputBoxActions.type(firstTextbox, firstNumber);
+    this.getLogo = function () {
+        waitActions.waitForElementIsDisplayed(homePageLogo);
+        return homePageLogo.getText();
+    };
+
+    this.enterYourName  = function( yourName ) {
+        waitActions.waitForElementIsDisplayed(yourNameTextBox);
+        inputBoxActions.type(yourNameTextBox, yourName);
+    };
+
+    this.getYourName = function( ) {
+        waitActions.waitForElementIsDisplayed(heading);
+        return heading.getText();
+    };
+
+    this.enterTodoTask = function(todoItem) {
+        waitActions.waitForElementIsDisplayed(toDoTextBox);
+        inputBoxActions.type(toDoTextBox, todoItem);
+    };
+
+    this.getTodoTaskLabel =  function() {
+        waitActions.waitForElementIsDisplayed(toDoTaskLabel);
+        return toDoTaskLabel.getText();
+    };
+
+    this.clickAddButton = function() {
+        waitActions.waitForElementIsDisplayed(addButton);
+        buttonActions.click(addButton);
     }
 
-    this.enterSecondNumber = function( secondNumber ) {
-        waitActions.waitForElementIsDisplayed(secondTextbox);
-        inputBoxActions.type(secondTextbox, secondNumber);
+    this.openTutorialPage = function() {
+        waitActions.waitForElementIsDisplayed(learnMenu);
+        learnMenu.click();
+        waitActions.waitForElementIsDisplayed(tutorialMenu);
+        tutorialMenu.click();
     }
 
-    this.clickGoButton = function () {
-        waitActions.waitForElementIsDisplayed(goButton);
-        buttonActions.click(goButton);
-    }
-
-    this.getLatestResult = function () {
-        waitActions.waitForElementIsDisplayed(latestResult);
-        labelActions.findText(latestResult);
-    }
-
-    this.verifyFirstNumber = function (value) {
-        inputBoxActions.verifyValue(firstTextbox, value);
-    }
+    
 };
